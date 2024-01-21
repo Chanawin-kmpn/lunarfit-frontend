@@ -5,6 +5,9 @@ import "slick-carousel/slick/slick-theme.css";
 import { Modal, Datepicker, Alert } from "flowbite-react";
 import { HiInformationCircle } from "react-icons/hi";
 import { FaAngleRight } from "react-icons/fa6";
+import styled from "styled-components";
+let number = 0;
+
 const monthNames = {
   1: "January",
   2: "February",
@@ -111,19 +114,13 @@ const Schedule = () => {
           Pick a year equal to or greater than the current !
         </span>
       </Alert>
-      <div className="  shadow-2xl  ">
-        <div
-          id="calendar-select"
-          className="text-center shadow-inner bg-[#ECF229] border-solid  border-black border-t-2 border-l-2 border-r-2  rounded-t-md "
-        >
-          <div
-            className="flex row  justify-center  pt-2 pb-1"
-            onClick={() => setOpenModal(true)}
-          >
-            <span className="text-bold">Schedule</span>
+      <ScheduleWrapper>
+        <ScheduleHeader id="calendar-select" className="">
+          <div className="flex gap-4 mb-2" onClick={() => setOpenModal(true)}>
+            <span className=" text-[1.25rem]">Schedule</span>
             <FaAngleRight className="my-auto" />
           </div>
-        </div>
+        </ScheduleHeader>
 
         <Modal show={openModal} onClose={() => setOpenModal(false)} popup>
           <Modal.Header />
@@ -132,12 +129,8 @@ const Schedule = () => {
           </Modal.Body>
         </Modal>
 
-        <div className=" bg-white  border-solid border-black  border-l-2 border-r-2 border-b-2 rounded-b-md">
-          <Slider
-            className="bg-[#ECF229] pr-2"
-            key={currentMonthNumber}
-            {...settingsMonth}
-          >
+        <div className="slider-section">
+          <Slider className="slider-wrapper" key={number++} {...settingsMonth}>
             {allMonth.map((monthObj) => {
               // Assuming btnColor is defined somewhere before this block
               let btnColor = "";
@@ -149,21 +142,21 @@ const Schedule = () => {
               }
 
               return (
-                <div key={monthObj.value} className="px-4 py-1">
+                <MonthWrapper key={monthObj.value} className="flex ">
                   <button
-                    className={`${btnColor} p-1 w-[6rem] text-center rounded-lg shadow-sm text-${
+                    className={`${btnColor} p-1 w-full rounded-lg shadow-sm text-${
                       monthObj.value === currentMonthNumber ? "white" : "black"
                     }`}
                     onClick={() => setCurrentMonthNumber(monthObj.value)}
                   >
                     {monthObj.label}
                   </button>
-                </div>
+                </MonthWrapper>
               );
             })}
           </Slider>
 
-          <Slider className="   border-solid" key={selectedDay} {...settings}>
+          <Slider className="bg-white -m-4 mt-4" key={number++} {...settings}>
             {allDay.map((day) => {
               let btnColor = "";
               // Set btnColor based on the condition
@@ -189,7 +182,7 @@ const Schedule = () => {
             })}
           </Slider>
         </div>
-      </div>
+      </ScheduleWrapper>
 
       {/* <p>จำนวนวันทั้งหมดคือ : {allDay.length}</p>
       <p>วันที่เลือก คือ {selectedDay}</p>
@@ -198,5 +191,27 @@ const Schedule = () => {
     </>
   );
 };
+
+const ScheduleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #ecf229;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  border: 2px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 1rem;
+`;
+
+const ScheduleHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const MonthWrapper = styled.div`
+  margin-left: 0.5rem;
+  max-width: 6rem;
+`;
 
 export default Schedule;

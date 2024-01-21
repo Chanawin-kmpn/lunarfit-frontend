@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaXmark } from "react-icons/fa6";
+import { Card } from "flowbite-react";
+import styled from "styled-components";
 
 //input data here
 const dataTips = [
@@ -94,27 +96,25 @@ const Tips = () => {
   }
 
   return (
-    <div>
-      <div
-        className="bg-white flex border-2 border-black rounded-md"
-        key={randomTips.id}
-      >
-        <div className="w-[35%]">
-          <img
-            className="
-          bg-cover object-contain object-center w-auto h-[auto] rounded-md"
-            src={randomTips.img}
-            alt="picture_tips"
-          />
-        </div>
+    // <TipWrapper key={randomTips.id}>
+    //   <TipImage>
+    //     <img className="" src={randomTips.img} alt="picture_tips" />
+    //   </TipImage>
 
-        <div className="w-[65%] p-[8px] ">
-          <p className="font-bold text-[16px]">{randomTips.topic}</p>
-          <p className="text-[9px]">{randomTips.details}</p>
-        </div>
-        <FaXmark className="text-[#DDDDDD]" onClick={handleDelete} />
-      </div>
-    </div>
+    //   <div className="w-[65%] p-[8px] ">
+    //     <p className="font-bold text-[16px]">{randomTips.topic}</p>
+    //     <p className="text-[9px]">{randomTips.details}</p>
+    //   </div>
+    //   <FaXmark className="text-[#DDDDDD]" onClick={handleDelete} />
+    // </TipWrapper>
+    <Card className="border-black border-2" imgSrc={randomTips.img} horizontal>
+      <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        {randomTips.topic}
+      </h5>
+      <p className="font-normal text-gray-700 dark:text-gray-400">
+        {randomTips.details}
+      </p>
+    </Card>
   );
 };
 
