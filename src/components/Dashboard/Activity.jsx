@@ -93,7 +93,7 @@ const Activity = () => {
   };
 
   return (
-    <CardWrapper>
+    <CardWrapper className="flex-1">
       {activityData?.map((activity, index) => (
         <Card key={index}>
           <Icon>

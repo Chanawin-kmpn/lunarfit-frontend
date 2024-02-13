@@ -31,7 +31,7 @@ const Signin = () => {
   // Function to handle login
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <PageTitle pageTitle="Sign In" />
       <InputWrapper>
         {inValid && (
@@ -54,7 +54,7 @@ const Signin = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Link className="ml-auto font-bold" to="/reset-password">
+        <Link className="ml-auto font-bold lg:text-lg" to="/reset-password">
           Forget Password ?
         </Link>
         <div className="flex flex-col mt-[67px]">
@@ -65,10 +65,10 @@ const Signin = () => {
           >
             Sign in
           </LightButton>
-          <p className="mt-[8px] text-center">
+          <p className="mt-2 text-center lg:text-lg lg:mt-4">
             Don’t have an account?{" "}
             <span>
-              <Link to="/signup" className="font-semibold">
+              <Link to="/signup" className="font-semibold lg:text-lg">
                 Create Account
               </Link>
             </span>

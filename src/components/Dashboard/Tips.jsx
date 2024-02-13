@@ -105,7 +105,11 @@ const Tips = () => {
     //   </div>
     //   <FaXmark className="text-[#DDDDDD]" onClick={handleDelete} />
     // </TipWrapper>
-    <Card className="border-black border-2" imgSrc={randomTips.img} horizontal>
+    <Card
+      className="border-black border-2 lg:max-w-60 lg:flex-col"
+      imgSrc={randomTips.img}
+      horizontal
+    >
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         {randomTips.topic}
       </h5>

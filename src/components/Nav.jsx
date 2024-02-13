@@ -62,6 +62,16 @@ const NavWrapper = styled.nav`
   margin-top: 6rem;
   margin-inline: -2rem;
   padding: 0 2rem 0.25rem;
+
+  @media (min-width: 1280px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    margin: 0;
+    width: 60%;
+    background: none;
+  }
 `;
 
 const Navbar = styled.ul`
@@ -72,6 +82,11 @@ const Navbar = styled.ul`
   align-items: baseline;
   justify-content: space-between;
   /* padding-top: 1rem; */
+  @media (min-width: 1280px) {
+    justify-content: flex-end;
+    gap: 2rem;
+    color: #151718;
+  }
 `;
 
 const NavList = styled.li`
@@ -94,6 +109,10 @@ const Icon = styled.img`
   width: 40px;
   aspect-ratio: 1;
   margin: 0 auto;
+
+  @media (min-width: 1280px) {
+    display: none;
+  }
 `;
 
 export default Nav;

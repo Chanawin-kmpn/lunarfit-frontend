@@ -133,7 +133,7 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <PageTitle pageTitle="Sign Up" />
       <InputWrapper>
         {inValid && (
@@ -208,7 +208,7 @@ const Signup = () => {
             Sign Up
           </LightButton>
           {/* </Link> */}
-          <p className="mt-[8px] text-center">
+          <p className="mt-[8px] text-center lg:text-lg lg:mt-4">
             Already have an account?{" "}
             <span>
               <Link to="/signin" className="font-semibold">

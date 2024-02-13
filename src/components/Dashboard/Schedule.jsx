@@ -207,6 +207,10 @@ const ScheduleWrapper = styled.div`
   border-radius: 10px;
   overflow: hidden;
   padding: 1rem;
+
+  @media (min-width: 1280px) {
+    max-width: 400px;
+  }
 `;
 
 const ScheduleHeader = styled.div`

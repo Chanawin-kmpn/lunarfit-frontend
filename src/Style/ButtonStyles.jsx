@@ -18,6 +18,12 @@ const longButton = `
     padding-block: 0.625rem;
     border-radius: 10px;
     border: 2px solid #151718;
+    max-width: 25.9375rem;
+    min-width: 22.875rem;
+    width: 100%; 
+    // @media (min-width: 431px) {
+   
+    // }
 `;
 
 const lightTheme = `

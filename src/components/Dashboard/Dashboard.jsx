@@ -19,7 +19,7 @@ const Dashboard = () => {
           <img src="/src/assets/images/icon/Profile.png" alt="" />
         </div>
       </div>
-      <div className="content-section flex flex-col gap-4">
+      <div className="content-section flex flex-col gap-4 lg:flex-row">
         <Schedule />
         <Activity />
         <Tips />
